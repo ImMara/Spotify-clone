@@ -1,6 +1,6 @@
-// pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth"
 import SpotifyProvider from "next-auth/providers/spotify"
+import {LOGIN_URL} from "../../../lib/spotify";
 
 export default NextAuth({
     secret: process.env.SECRET,
