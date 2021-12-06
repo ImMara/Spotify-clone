@@ -1,15 +1,18 @@
 import React from 'react';
 import {HomeIcon, SearchIcon, LibraryIcon, PlusCircleIcon, HeartIcon, RssIcon} from "@heroicons/react/outline";
-import {signOut} from "next-auth/react";
+import {signOut, useSession} from "next-auth/react";
 
 function Sidebar(props) {
+
+    const {data:session,status} = useSession();
+    console.log(session);
+
     return (
         <div className="text-gray-500 p-5 text-sm border-r border-gray-900">
            <div>
                <button className="flex items-center space-x-2 hover:text-white"
-                    onClick={()=>signOut()}
+                       onClick={()=>signOut()}
                >
-                   <HomeIcon className="h-5 w-5"/>
                    <p>Logout</p>
                </button>
                <button className="flex items-center space-x-2 hover:text-white">
